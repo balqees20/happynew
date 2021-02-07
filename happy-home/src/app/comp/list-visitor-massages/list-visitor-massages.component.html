@@ -1,0 +1,18 @@
+<section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 animate">
+                      <div *ngFor="let C of listcontact">
+                          <div class="text pl-md-8">
+                              <h2>الاسم: <span>{{C.username}}</span></h2>
+                              <h4>وقم الهاتف: <span>{{C.phone_no}}</span></h4>
+                              <h4>الايميل: <span>{{C.email}}</span></h4>
+
+                              <p>{{C.vmassage}}</p>
+                          </div>
+                      </div>
+           
+        </div> 
+      </div>
+    </div>
+  </section> 

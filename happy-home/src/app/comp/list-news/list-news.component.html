@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>اخر أخبار جمعية البيوت السعيدة </h2>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let N of  newslist">
+          <div class="card">
+            <div class="card-body">
+              
+              <h4 class="card-title">{{N.news_title}}</h4>
+              <p class="card-text">{{N.date}}</p>
+              <p class="card-text">{{N.description}}</p>
+              
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+        
+    </div>
+</body>
+</html>

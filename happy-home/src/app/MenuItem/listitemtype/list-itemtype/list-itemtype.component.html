@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h2>أصناف مأكولات مطبخ البيوت السعيدة </h2>
+        <a type="button" class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1" aria-pressed="true"
+            routerLink="/menuitems/{_itemtype_id}" routerLinkActive="active">
+            <span>  عرض قائمة جميع الأطعمة</span>
+          </a>
+          <br>
+          <br>
+          <div class="row">
+              <!--<div class="col-sm-4">
+                <div class="card">
+                    <img src="../../assets/image/m7jnat.jpg"/>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card">
+                    <img src="../../assets/image/aklatkkkk.jpg"/>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card">
+                    <img src="../../assets/image/7laweeat.jpg"/>
+                  </div>
+              </div>-->
+          </div>
+          
+        <div class="row">
+                <div class="col-sm-4" *ngFor="let t of  typelist">
+                    <div>
+                      <img src="http://localhost:4620/{{t.type_image}}" width="150px" height="150px"  alt="...">
+
+                    </div>
+                    <div>
+                      <!--  <button class="btn btn-danger" (click)="mydelete(t)">
+                            <a href="#"><i class="fa fa-trash"></i></a>
+                        </button>-->
+                      <h3 >{{t.type_name}}</h3>
+                      <a type="button" class="btn mb-1 py-1 px-2  browse-button mr-1" aria-pressed="true"
+                      routerLink="/menuitems/{{t._id}}" routerLinkActive="active" >
+                      <span>عرض الوجبات</span>
+                    </a>
+                    </div>
+                
+                <br>
+            </div>
+            
+        </div>
+        <br>
+          <div class="row">
+              
+              
+               
+            
+        </div>
+    </div>
+</body>
+</html>
+

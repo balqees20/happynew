@@ -1,0 +1,67 @@
+.icon-bar a {
+
+  display: block;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-size: 28px;
+
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  top: 20px;
+  background: #3B5998;
+  color: white;
+}
+
+
+.google {
+  background: #06bd58;
+  color: white;
+}
+
+.instagram {
+  background: #007bb5;
+  color: white;
+}
+
+.whatsapp {
+  background: #bbb000;
+  color: white;
+}
+.phone{
+  background: #eb5146;
+  color: blue;
+}
+
+.content {
+  margin-top: 15% ;
+  margin-left: 2px;
+  margin-right: 5px;
+  font-size: 30px;
+  width: 50%;
+}
+.sicon{
+  border-radius: 70%;
+  margin: 3px ;
+}
+.ph4{
+  background-color: sienna;
+  font-family: 'Playfair Display', serif;
+}
+h4{
+  color: snow;
+  text-align: left;
+  font-family: 'Playfair Display', serif;
+
+}
+h5{
+  font-family: 'Playfair Display', serif;
+}
+p{
+  font-family: 'Teko', sans-serif;
+}

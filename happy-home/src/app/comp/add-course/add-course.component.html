@@ -1,0 +1,65 @@
+<div class="contant">
+    <div class="card">     
+    <form  #f="ngForm" (ngSubmit)="submit(f)">
+
+        <div class="row">
+            <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="label" for="coures_name"> اسم الدورة  </label>
+                        <input required ngModel name="coures_name" #scoures_name="ngModel" (change)="log(coures_name)" id="coures_name" type="text" class="form-control">
+                        <div *ngIf="coures_name && !coures_name.valid" class="alert alert-danger">
+                            <div *ngIf="coures_name.errors.required">الرجاءإدخال اسم الدورة  </div>
+                        </div>
+                    </div>
+                   
+                
+                    <div class="form-group">
+                        <label for="start_date">  تاريخ بداية الدورة </label>
+                        <input required ngModel name="start_date" #sstart_date="ngModel" (change)="log(start_date)" id="start_date" type="date" class="form-control">
+                        <div *ngIf="start_date && !start_date.valid" class="alert alert-danger">
+                            <div *ngIf="start_date.errors.required">  الرجاء إدخال تاريخ بدء الدورة  </div>
+                        </div>
+                    </div>
+                
+                    
+                    <div class="form-group">
+                        <label for="last_date">  تاريخ نهاية الدورة </label>
+                        <input required ngModel name="last_date" #slast_date="ngModel" (change)="log(last_date)" id="last_date" type="date" class="form-control">
+                        <div *ngIf="last_date && !last_date.valid" class="alert alert-danger">
+                            <div *ngIf="last_date.errors.required">الرجاء إدخال تاريخ  نهاية الدورة   </div>
+                        </div>
+                    </div>
+                
+                   
+            
+              
+                
+            </div>
+            <div class="col-sm5">
+                <div class="form-group">
+                    <label for="target_group">الفئة المستهدفة </label>
+                    <input required ngModel name="target_group" #starget_group="ngModel" (change)="log(target_group)" id="target_group" type="text" class="form-control">
+                    <div *ngIf="target_group && !target_group.valid" class="alert alert-danger">
+                        <div *ngIf="target_group.errors.required"> الرجاء إدخال الفئة المستهدفة   </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">وصف</label>
+                    <input required ngModel name="description" #sdescription="ngModel" (change)="log(description)" id="description" type="text" class="form-control">
+                    <div *ngIf="description && !description.valid" class="alert alert-danger">
+                        <div *ngIf="description.errors.required"> الرجاءادخال الوصف </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="course_image">صورة م</label>
+                    <input  ngModel name="course_image" #image="ngModel" (change)="onselectedImage($event);" id="course_image" type="file" class="form-control">
+                </div>
+            
+            </div>
+        </div>
+        <button class="btn btn-primary" [disabled]="!f.valid" >إضافة </button>
+
+    </form>
+
+    </div>
+</div>

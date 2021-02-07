@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>نشاطات جمعية البيوت السعيدة </h2>
+    <button type="button" class="btn btn-outline-warning"><a routerLink="/addactivity">إضافة نشاط</a></button>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let act of  actlist">
+            <div ng-app="myApp" ng-controller="namesCtrl">
+                    
+                    <img src={{act.act_image}} class="card-img-top">
+                    <div class="card-body">
+                        <h2 class="card-title">{{act.act_name}}</h2>
+                        <h6>{{act.act_type}}</h6>
+                        <h6>{{act.program_name}}</h6>
+                        <p>{{act.description}}</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

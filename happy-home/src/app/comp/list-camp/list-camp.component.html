@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<!--<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head> 
+-->
+<body>
+
+    <div class="container">
+
+          <h2>مخيمات جمعية البيوت السعيدة </h2>
+        <button type="button" class="btn btn-outline-warning"><a routerLink="/addcamp">إضافة المخيم</a></button>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let C of camplist">
+            <div class="card">
+                <div class="card-body">
+                   <button class="btn btn-danger" (click)="mydelete(C)">
+                            <a href="#"><i class="fa fa-trash"></i></a>
+                        </button>
+                  <h3 class="card-title">{{C.camp_name}}</h3>
+                  <h5>الموسم السنوي</h5>
+                  <p class="card-text">{{C.season}}</p>
+                  <h5>تاريخ بداية المخيم </h5>
+                  <p class="card-text">{{C.start_date}}</p>
+                  <h5>تاريخ نهاية المخيم</h5>
+                  <p class="card-text">{{C.last_date}}</p>
+                  <h6>:الفئة المستهددفة </h6>
+                  <h6 class="card-title">{{C.target_group}}</h6>
+                  <p class="card-text">{{C.description}}</p>
+                </div>
+            </div>
+        </div>
+      </div>  
+      
+        
+    </div>
+</body>
+</html>

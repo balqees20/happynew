@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>ملتقيات جمعية البيوت السعيدة </h2>
+        <button type="button" class="btn btn-outline-warning"><a routerLink="/addmeeting">إضافة ملتقى </a></button>
+        <div class="row">
+            <div class="col-md-4" *ngFor="let M of   meetlist">
+                <div class="card" >
+                    <div class="card-body">
+                        <button class="btn btn-danger" (click)="mydelete(M)">
+                            <a href="#"><i class="fa fa-trash"></i></a>
+                        </button>
+                      <h3 class="card-title">{{M.meeting_name}}</h3>
+                      <H6>تاريخ الملتقى </H6>
+                      <p class="card-text">{{M.meeting_date}}</p>
+                      <H6>مكان الملتقى </H6>
+                      <img src="M.meeting_image">
+                      <p class="card-text">{{M.meeting_place}}</p>
+    
+                      <h6 class="card-title">{{M.meeting_type}}</h6>
+                      <h6 class="card-title">{{M.program_name}}</h6>
+                      <p class="card-text">{{M.description}}</p>
+                    </div>
+                </div>
+                <br>
+            </div>    
+
+        </div>
+        
+    </div>
+</body>
+</html>

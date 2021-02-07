@@ -1,0 +1,12 @@
+.container{
+    margin: 30px;
+    font-family: 'Playfair Display', serif;
+}
+table{
+    margin: 15px;
+
+}
+li button{
+    background-color: rgb(214, 225, 65);
+    margin: 3px;
+}

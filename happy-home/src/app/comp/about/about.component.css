@@ -1,0 +1,19 @@
+h6{
+    color: rgba(15, 73, 73, 0.74);
+    background-color: rosybrown;
+}
+h2{
+    color: rgb(126, 22, 4);
+}
+.col-sm-3{
+
+ float: right;
+ margin-top: 40px;
+}
+.card{
+    margin: 0px;
+    float: right;
+}
+.card-text{
+ height: 100px;
+}

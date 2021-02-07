@@ -1,0 +1,55 @@
+<form  #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="form-group">
+        <label for="meeting_name">اسم الملتقى </label>
+        <input required ngModel name="meeting_name" #smeeting_name="ngModel" (change)="log(meeting_name)" id="meeting_name" type="text" class="form-control">
+        <div *ngIf="meeting_name && !meeting_name.valid" class="alert alert-danger">
+            <div *ngIf="meeting_name.errors.required">الرجاء إدخال اسم الملتقى  ط </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="meeting_name">  مكان الملتقى </label>
+        <input required ngModel name="meeting_place" #sact_place="ngModel" (change)="log(meeting_name)" id="act_place" type="text" class="form-control">
+        <div *ngIf="meeting_place && !meeting_place.valid" class="alert alert-danger">
+            <div *ngIf="meeting_place.errors.required">  الرجاء إدخال مكان  </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="meeting_type"> نوع اللقاء </label>
+        <select ngModel name="meeting_type" id="meeting_type" class="form-control">
+          <option *ngFor="let meeting_type of  meeting_typeList" [value]="meeting_type">{{meeting_type}}</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="meeting_date">تاريخ اللقاء</label>
+        <input required ngModel name="meeting_date" #smeeting_date="ngModel" (change)="log(meeting_date)" id="meeting_date" type="date" class="form-control">
+        <div *ngIf="meeting_date && !meeting_date.valid" class="alert alert-danger">
+            <div *ngIf="meeting_date.errors.required"> الرجاء إدخال تاريخ  اللقاء </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="program_name"> البرنامج  </label>
+        <select ngModel name="program_name" id="program_name" class="program_name">
+          <option *ngFor="let program_name of  program_nameList" [value]="program_name">{{program_name}}</option>
+        </select>
+    </div>
+    
+
+    <div class="form-group">
+        <label for="description">description</label>
+        <input required ngModel name="description" #sdescription="ngModel" (change)="log(description)" id="description" type="text" class="form-control">
+        <div *ngIf="description && !description.valid" class="alert alert-danger">
+            <div *ngIf="description.errors.required"> الرجاءادخال الوصف </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="meeting_image">صورة م</label>
+        <input  ngModel name="meeting_image" #image="ngModel" (change)="onselectedImage($event);" id="meeting_image" type="file" class="form-control">
+    </div>
+
+
+        <button class="btn btn-primary" [disabled]="!f.valid" >إضافة </button>
+
+</form>

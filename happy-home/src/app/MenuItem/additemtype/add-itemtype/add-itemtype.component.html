@@ -1,0 +1,41 @@
+<div class="content">
+    <div class="card">
+        <form  #f="ngForm" (ngSubmit)="submit(f)">
+            <div class="form-group">
+                <label for="id"> رقم الصنف  </label>
+                <input required ngModel name="id" #id="ngModel" (change)="log(id)" id="id" type="number" class="form-control">
+                <div *ngIf="id.touched && !id.valid" class="alert alert-danger">
+                    <div *ngIf="id.errors.required">الرجاء إدخال رقم الصنف </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="type_name"> اسم الصنف  </label>
+                <input required ngModel name="type_name" #type_name="ngModel" (change)="log(type_name)" id="type_name" type="text" class="form-control">
+                <div *ngIf="type_name.touched && !type_name.valid" class="alert alert-danger">
+                    <div *ngIf="type_name.errors.required">الرجاء إدخال اسم الصنف </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="type_image">صورة م</label>
+                <input  ngModel name="type_image" #image="ngModel" (change)="onselectedImage($event);" id="type_image" type="file" class="form-control">
+            </div>
+
+           <!--
+               <div class="wrap-input100 validate-input form-group">
+                <label for="type_image">صورة م</label>
+                <div class="custom-file">
+                  <input type="file" #imageInput accept="image/*"
+                  (change)="onselectedImage($event)" class="custom-file-input form-control" name="type_name" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" ngModel>
+                  <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                </div>
+            </div>
+            <img [src]="url" width="400px">
+
+           --> 
+    
+          <button class="btn btn-primary" [disabled]="!f.valid" >إضافة </button>
+
+          
+       </form>
+    </div>
+</div>

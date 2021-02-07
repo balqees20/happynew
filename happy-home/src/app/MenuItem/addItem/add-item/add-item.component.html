@@ -1,0 +1,43 @@
+
+    <br>
+    <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                <form  #f="ngForm" (ngSubmit)="submit(f)">
+                    <div class="form-group">
+                        <label for="item_name"> اسم الوجبة  </label>
+                        <input required ngModel name="item_name" #item_name="ngModel" (change)="log(item_name)" id="item_name" type="text" class="form-control">
+                        <div *ngIf="item_name.touched && !item_name.valid" class="alert alert-danger">
+                            <div *ngIf="item_name.errors.required">الرجاء إدخال اسم الصنف </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price"> السعر</label>
+                        <input required ngModel name="price" #price="ngModel" (change)="log(price)" id="price" type="number" class="form-control">
+                        <div *ngIf="price.touched && !price.valid" class="alert alert-danger">
+                            <div *ngIf="price.errors.required"> الرجاء إدخال السعر  </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemType_id"> تصنيف الوجبة </label>
+                        <select class="custom-select" required  ngModel name="itemType_id"  class="form-control">
+                          <option [value]="t.id" *ngFor="let t of  typelist;" ><h1>{{t.type_name}}</h1></option>
+                        </select>
+                    </div>
+                    
+        
+                    <button class="btn btn-primary" [disabled]="!f.valid" >إضافة </button>
+        
+        
+        
+        
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <img src="../../assets/image/oldmenu.jpg"/>
+        </div>
+        </div>
+        
+

@@ -1,0 +1,284 @@
+<div class="container">
+  <div class="row">
+    <a routerLink="/logout">تسجيل الخروج </a>
+  </div>
+  <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/addprogram">إضافة برنامج</a>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/addcamp">إضافة المخيم</a>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/addactivity">إضافة نشاط</a>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/addnews">إضافةخبر  </a>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/addcoures">إضافة دورة </a>
+        </button>
+
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/addcoures">إضافة معلومة حول الجمعية</a>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/addmeeting">إضافةملتقى</a>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/additem">إضافةوجبة طعام </a>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/additemtype">إضافةصنف طعام </a>
+        </button>
+
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="/massages">الرسائل  </a>
+        </button>
+
+      </li>
+    </ul>
+  </nav>
+  <br>
+ <div >
+  <h2>برامج  جمعية البيوت السعيدة </h2> 
+  
+  <br>
+
+       
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>اسم البرنامج </th>
+        <th>وصف البرنامج</th>
+        <th>لحذف برنامج</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let prog of programlist">
+      <tr>
+        <td>{{prog.pname}}</td>
+        <td>{{prog.description}}</td>
+        <td><button class="btn btn-danger" (click)="pdelete(prog)">
+          <a href="#"><i class="fa fa-trash"></i></a>
+         </button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+ </div>
+ <br>
+<div  style="background-color:red; text-align: center;">
+  <h2>مخيمات  جمعية البيوت السعيدة </h2> 
+</div>
+<div>
+<br>       
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>اسم المخيم </th>
+        <th>الموسم </th>
+        <th>تاريخ بداية المخيم</th>
+        <th>تاريخ نهايةالمخيم</th>
+        <th>الفئة المستهدفة</th>
+        <th>الوصف</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let C of camplist">
+      <tr>
+        <td>{{C.camp_name}}</td>
+        <td>{{C.season}}</td>
+        <td>{{C.start_date}}</td>
+        <td>{{C.last_date}}</td>
+        <td>{{C.target_group}}</td>
+        <td>{{C.description}}</td>
+        <td><button class="btn btn-danger" (click)="Cdelete(C)">
+          <a href="#"><i class="fa fa-trash"></i></a>
+      </button></td>
+      </tr>
+     
+    </tbody>
+  </table>
+ </div>
+
+<div >
+<div style="background-color: darkorange; text-align: center;">
+  <h2>نشاطات  جمعية البيوت السعيدة </h2> 
+
+</div>  
+  <br>
+
+       
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>اسم النشاط </th>
+        <th>مكان النشاط </th>
+        <th>تاريخ النشاط </th>
+        <th>نوع النشاط </th>
+        <th> وصف النشاط </th>
+        <th>لحذف النشاط</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let act of  actlist">
+      <tr>
+        <td>{{act.act_name}}</td>
+        <td>{{act.act_place}}</td>
+        <td>{{act.act_date}}</td>
+        <td>{{act.act_type}}</td>
+        <td>{{act.description}}</td>
+
+        <td><button class="btn btn-danger" (click)="actdelete(act)">
+          <a href="#"><i class="fa fa-trash"></i></a>
+         </button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+ </div>-------------------------------------------------------------------------
+ <br>
+ <div>
+ <div style="background-color: yellow; text-align: center;">
+  <h2>أخبار  جمعية البيوت السعيدة </h2> 
+ </div>
+  <br>   
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>عنوان الخبر</th>
+        <th>تاريخ الخير </th>
+        <th>محتوى الخبر  </th>
+
+        <th>لحذف برنامج</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let news of newslist">
+      <tr>
+        <td>{{news.news_title}}</td>
+        <td>{{news.date}}</td>
+        <td>{{news.description}}</td>
+        <td><button class="btn btn-danger" (click)="newsdelete(news)">
+          <a href="#"><i class="fa fa-trash"></i></a>
+         </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div >
+    <div style="background-color: rgb(148, 12, 75); text-align: center;">
+      <h2>ملتقيات  جمعية البيوت السعيدة </h2> 
+    
+    </div>  
+      <br>
+  
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>اسم الملتقى  </th>
+            <th>مكان الملتقى  </th>
+            <th>التاريخ </th>
+            <th>النوع</th>
+            <th> الوصف </th>
+            <th>حذف ملتقى</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let a of  meetlist">
+          <tr>
+            <td>{{a.meeting_name}}</td>
+            <td>{{a.meeting_place}}</td>
+            <td>{{a.meting_date}}</td>
+            <td>{{a.meeting_type}}</td>
+            <td>{{a.description}}</td>
+            <td><button class="btn btn-danger" (click)="deletemeet(a)">
+              <a href="#"><i class="fa fa-trash"></i></a>
+             </button>
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+     </div>-----------
+
+    <br>
+    <div style="background-color:rgba(120, 120, 233, 0.651); text-align: center;">
+      <h2>دورات  جمعية البيوت السعيدة </h2> 
+      </div>
+    <div>
+    <br>       
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>اسم الدورة  </th>
+            <th>البرنامج </th>
+            <th>تاريخ بداية المخيم</th>
+            <th>تاريخ نهايةالمخيم</th>
+            <th>الفئة المستهدفة</th>
+            <th>الوصف</th>
+    
+          </tr>
+        </thead>
+        <tbody *ngFor="let Co of courseslist">
+          <tr>
+            <td>{{Co.coures_name}}</td>
+            <td>{{Co.program}}</td>
+            <td>{{Co.start_date}}</td>
+            <td>{{Co.last_date}}</td>
+            <td>{{Co.target_group}}</td>
+            <td>{{Co.description}}</td>
+            <td><button class="btn btn-danger" (click)="coursedelete(Co)">
+              <a href="#"><i class="fa fa-trash"></i></a>
+          </button></td>
+          </tr>
+         
+        </tbody>
+  </table>
+ </div>
+ <div >
+  <div style="background-color: darkorange; text-align: center;">
+    <h2>حول  جمعية البيوت السعيدة </h2> 
+  </div>  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>العنوان</th>
+          <th>الوصف </th>
+          <th>لحذف عنصر </th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let ab of  ablist">
+        <tr>
+          <td>{{ab.title}}</td>
+          <td>{{ab.description}}</td>
+          <td><button class="btn btn-danger" (click)="aboutdelete(ab)">
+            <a href="#"><i class="fa fa-trash"></i></a>
+           </button>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+   </div>
+</div>
+ 

@@ -1,0 +1,83 @@
+<div class="contaner">
+    <div class="row">
+      <div class="card">
+        
+                    <form  #f="ngForm" (ngSubmit)="submit(f)">
+                        <div class="form-group">
+                            <label for="act_name">اسم النشاط</label>
+                            <input required ngModel name="act_name" #act_name="ngModel" (change)="log(act_name)" id="act_name" type="text" class="form-control">
+                            <div *ngIf="act_name.touched && !act_name.valid" class="alert alert-danger">
+                                <div *ngIf="act_name.errors.required"> الرجاء إدخال اسم النشاط </div>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="act_place">مكان النشاط</label>
+                            <input required ngModel name="act_place" #act_place="ngModel" (change)="log(act_place)" id="act_place" type="text" class="form-control">
+                            <div *ngIf="act_place.touched && !act_place.valid" class="alert alert-danger">
+                                <div *ngIf="act_place.errors.required"> الرجاء إدخال مكان النشاط </div>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="act_type"> نوع النشاط </label>
+                            <select ngModel name="act_type" id="act_type" #act_type="ngModel" class="form-control">
+                              <option *ngFor="let act_type of act_typeList" [value]="act_type">{{act_type}}</option>
+                            </select>
+                            
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label for="act_date">تاريخ النشاط</label>
+                            <input required ngModel name="act_date" #act_date="ngModel" (change)="log(act_date)" id="act_date" type="date" class="form-control">
+                            <div *ngIf="act_date.touched && !act_date.valid" class="alert alert-danger">
+                                <div *ngIf="act_date.errors.required"> الرجاء إدخال تاريخ  النشاط </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="act_image">صورة النشاط</label>
+                            <input type="file"  (change)="onselectedImage($event);" name="act_image"/>
+                            
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label for="description">وصف</label>
+                            <textarea required ngModel name="description"#description="ngModel" (change)="log(description)" id="description" type="text" class="form-control"  rows="2"></textarea>
+                            <div *ngIf="description.touched && !description.valid" class="alert alert-danger">
+                                <div *ngIf="description.errors.required"> الرجاءادخال الوصف </div>
+                            </div>
+                        </div>
+                    
+                    
+                            <button class="btn btn-primary" [disabled]="!f.valid" >إضافة </button>
+                    
+                    </form>
+               
+        
+        
+        <!--<div class="col-md-4">
+            <div class="card caed-body text-center">
+                <img [src]="act_image == ''? '/assets/image/noimage.jpg':act_image" class="card-img-top">
+                <p>{{act_name == ''?'اسم النشاط':act_name}}</p>
+                <p>{{act_place}}</p>
+                <p>{{program_name}}</p>
+                <p>{{description}}</p>
+                <p>{{act_date}}</p>
+
+
+            </div>
+        </div>
+    -->
+
+
+      
+        
+        
+        
+    </div>
+
+
+    </div>
+</div>
