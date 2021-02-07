@@ -4,6 +4,8 @@ import { Request, Response } from "express-serve-static-core";
 import { MysqlError } from 'mysql';
 import {generateAuthToken} from "../middlware/auth";
 import ITEMTYPE from "../model/itemtype"
+import upload from "../service/imageuplodservice";
+
 
 const itemtype_rout = express.Router();
 
@@ -33,16 +35,26 @@ itemtype_rout.get('/:id', (req, res) => {
 
 
 itemtype_rout.post('/', (req:Request, res:Response) => {
-    let y:ITEMTYPE = req.body.itemtype;
-    connection.query("INSERT INTO itemtype (id,type_name,type_image) VALUES('" +y.id+"','" +y.type_name+"','" +y.type_image+ "') ", (err, results)=>{
-        if (err){
-            console.log("SQL ERROR " + err);
-            res.json(err);
-        }
-        else{
-            res.json({'created': 'success'});
-        }
+    upload.uploadLocalStorage(req, res, async (error: any) => {
+        let files: any = req.files
+        const imagePath = files.itemType_image[0].path;
+        const image: any = await upload.uploadCloudinary(
+            imagePath,
+            'itemType_image'
+        );
+        connection.query("INSERT INTO itemtype (id,type_name,type_image) VALUES('" +req.body.id+"','" +req.body.type_name+"','" +image.url+ "') ", (err, results)=>{
+            if (err){
+                console.log("SQL ERROR " + err);
+                res.json(err);
+            }
+            else{
+                res.json({'created': 'success'});
+            }
+        })
+
     })
+
+    
 });
 itemtype_rout.post('/delete', (req: Request, res: Response) => {
     let id: string = req.body.id;

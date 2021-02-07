@@ -117,18 +117,14 @@ export class HappydataService {
     return this.http.post(this.programUrl, body)
   }
 
-  addActivity(act:active){
-    let body ={
-      "activity":act
-    }
-    return this.http.post(this.activUrl,body)
+  addActivity(act:any){
+   
+    return this.http.post(this.activUrl,act)
   }
 
-  addCamp(cam:camp){
-    let body ={
-      "camp":cam
-    }
-    return this.http.post(this.campUrl,body)
+  addCamp(cam:any){
+  
+    return this.http.post(this.campUrl,cam)
 
   }
 
@@ -141,9 +137,8 @@ export class HappydataService {
 
 
 
-  addMeeting(meet:meeting){
-    let body ={"meeting":meet}
-    return this.http.post(this.meetUrl,body)
+  addMeeting(meet:any){
+    return this.http.post(this.meetUrl,meet)
   }
   addnews(N:news){
     let body ={"news":N}
@@ -206,16 +201,9 @@ export class HappydataService {
     formdata.append('file',image);
   return this.http.post(this.imageUrl,formdata);
   }
-  additemtype(itm:ItemType,image:ItemType){
-    itm.type_image= image;
-  let body:any={
-  "itemtype" : itm,
-  };
-  this.addimage(image).subscribe(
-      res=>console.log(res),
-    err=>console.log(err)
-  );
-  return this.http.post(this.itemtypeUrl,body,{ headers:this.headers });
+  additemtype(itm:any){
+    
+  return this.http.post(this.itemtypeUrl,itm);
   }
   /*additemtype(itm:ItemType){
     let body = {

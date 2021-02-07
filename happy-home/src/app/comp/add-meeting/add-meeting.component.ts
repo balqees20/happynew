@@ -55,15 +55,14 @@ export class AddMeetingComponent implements OnInit {
     if (f.valid){
       console.log("form value " +JSON.stringify(f.value))
       const formData =new FormData();
-    formData.append('meeting_image',this.selectedImage);
+    formData.append("meeting_image",this.selectedImage);
     formData.append("meeting_name",f.value.meeting_name);
     formData.append("meeting_place",f.value.meeting_place);
     formData.append("meeting_type",f.value.meeting_type);
     formData.append("meeting_date",f.value.meeting_date);
     formData.append("program_name",f.value.program_name);
     formData.append("description",f.value.description);
-          let m:meeting = f.value
-      this.homeService.addMeeting(m).subscribe(
+      this.homeService.addMeeting(formData).subscribe(
         (response) =>this.response =response
       )
     }

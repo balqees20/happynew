@@ -40,8 +40,14 @@ export class AddActivityComponent implements OnInit {
     submit(f){
       if (f.valid){
         console.log("form value " + JSON.stringify(f.value))
-        let act: active = f.value
-        this.homeService.addActivity(act).subscribe(
+        const formData =new FormData();
+        formData.append("act_image",this.selectedImage);
+        formData.append("act_name",f.value.act_name);
+        formData.append("act_date",f.value.act_date);
+        formData.append("act_place",f.value.act_place);
+        formData.append("act_type",f.value.act_type);
+        formData.append("description",f.value.description);
+        this.homeService.addActivity(formData).subscribe(
           (response) => this.response = response
         )
       }

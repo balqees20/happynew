@@ -44,8 +44,12 @@ image;
   submit(f){
     if (f.valid){
       console.log("form value " + JSON.stringify(f.value))
-      let i:ItemType= f.value
-      this.homeService.additemtype(i,this.image).subscribe(
+      const formData =new FormData();
+      formData.append("itemType_image",this.selectedImage);
+      formData.append("type_name",f.value.type_name);
+      formData.append("id",f.value.id);
+      
+      this.homeService.additemtype(formData).subscribe(
         (response) =>{this.response =response;
           //this.getitemtype();
        }

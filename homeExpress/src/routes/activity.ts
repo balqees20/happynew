@@ -4,6 +4,8 @@ import { Request, Response } from "express-serve-static-core";
 import { MysqlError } from 'mysql';
 //import {generateAuthToken} from "../middlware/auth";
 import activity from "../model/activity";
+import upload from "../service/imageuplodservice";
+
 
 const active = express.Router();
 
@@ -30,17 +32,28 @@ active.get('/:act_id', (req, res) => {
 
 
 active.post('/', (req:Request, res:Response) => {
-    let ACT:activity = req.body.activity;
-    
-    connection.query("INSERT INTO activity (act_name,act_place,act_type ,act_date,act_image,description) VALUES('" +ACT.act_name+ "','" +ACT.act_place+ "','" +ACT.act_type+ "','" +ACT.act_date+ "','" +ACT.act_image+ "','" + ACT.description+ "') ", (err, results)=>{
-        if (err){
-            console.log("SQL ERROR " + err);
-            res.json(err);
-        }
-        else{
-            res.json({'created': 'success'});
-        }
+
+    upload.uploadLocalStorage(req, res, async (error: any) => {
+        let files: any = req.files
+        const imagePath = files.act_image[0].path;
+        const image: any = await upload.uploadCloudinary(
+            imagePath,
+            'act_image'
+        );
+        connection.query("INSERT INTO activity (act_name,act_place,act_type ,act_date,act_image,description) VALUES('" +req.body.act_name+ "','" +req.body.act_place+ "','" +req.body.act_type+ "','" +req.body.act_date+ "','" +image.url+ "','" + req.body.description+ "') ", (err, results)=>{
+            if (err){
+                console.log("SQL ERROR " + err);
+                res.json(err);
+            }
+            else{
+                res.json({'created': 'success'});
+            }
+        })
+
     })
+  
+    
+    
 });
 active.post('/delete', (req: Request, res: Response) => {
     let id: string = req.body.id;

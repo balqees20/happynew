@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 });
 
 const uploadLocalStorage = multer({ storage }).fields([
-	{ name: "meeting" },
+	{ name: "meeting_image" },{ name: "camp_image" },{ name: "act_image" },{ name: "itemType_image" }
 ]);
 
 // Cloudinary configuration
@@ -79,5 +79,5 @@ function destroyCloudinary(image:any) {
 //};
 export default {uploadCloudinary,
 				uploadLocalStorage,
-			    destroyCloudinary}
+			    destroyCloudinary,}
 

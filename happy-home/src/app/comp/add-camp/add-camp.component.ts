@@ -39,8 +39,17 @@ export class AddCampComponent implements OnInit {
   submit(f){
     if (f.valid){
       console.log("form value " + JSON.stringify(f.value))
-      let c:camp = f.value
-      this.homeService.addCamp(c).subscribe(
+   
+      const formData =new FormData();
+    formData.append("camp_image",this.selectedImage);
+    formData.append("camp_name",f.value.camp_name);
+    formData.append("target_group",f.value.target_group);
+    formData.append("season",f.value.season);
+    formData.append("start_date",f.value.start_date);
+    formData.append("last_date",f.value.last_date);
+    formData.append("description",f.value.description);
+
+      this.homeService.addCamp(formData).subscribe(
         (response) =>this.response =response
       )
       
