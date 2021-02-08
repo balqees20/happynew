@@ -12,6 +12,8 @@ import{HappydataService} from '../../happydata.service'
 })
 export class NavbarComponent implements OnInit {
   programlist:Program[];
+  admin=localStorage.getItem('name');
+  
   constructor(private homeService:HappydataService ,private router:Router ) { }
 
   ngOnInit(): void {

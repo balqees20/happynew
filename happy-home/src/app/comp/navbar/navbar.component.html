@@ -50,10 +50,10 @@
       <li class="nav-item">
         <a class="nav-link" class="nav-link " routerLink="/contact"> <h6> للتواصل</h6></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="admin=='admin2'">
         <a class="nav-link" class="nav-link " routerLink="/kitchenmanger"> <h6>ادارة المطبخ ل</h6></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="admin=='admin1'">
         <a class="nav-link" class="nav-link " routerLink="/admain"> <h6> ادارةالموقع</h6></a>
       </li>
      

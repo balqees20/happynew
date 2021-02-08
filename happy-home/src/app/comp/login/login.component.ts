@@ -22,9 +22,13 @@ export class LoginComponent implements OnInit {
       this.loginService.login(f.value.mangerName, f.value.password).subscribe(
         response => {
           this.body = response
+          console.log(this.body)
           if (this.body.name){
-            localStorage.setItem("token", this.body.token)
+            localStorage.setItem("name", this.body.name)
+            if(this.body.name=='admin1')
             this.router.navigate(['/admain'])
+            else 
+            this.router.navigate(['/kitchenmanger'])
           }
           else{
             this.message = "Access Denide, Invalid name or password"

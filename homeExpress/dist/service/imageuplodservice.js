@@ -24,7 +24,7 @@ const storage = multer_1.default.diskStorage({
     },
 });
 const uploadLocalStorage = multer_1.default({ storage }).fields([
-    { name: "meeting" },
+    { name: "meeting_image" }, { name: "camp_image" }, { name: "act_image" }, { name: "itemType_image" }
 ]);
 // Cloudinary configuration
 cloudinary_1.default.v2.config({
@@ -71,5 +71,5 @@ function destroyCloudinary(image) {
 //};
 exports.default = { uploadCloudinary,
     uploadLocalStorage,
-    destroyCloudinary };
+    destroyCloudinary, };
 //# sourceMappingURL=imageuplodservice.js.map
