@@ -24,6 +24,7 @@ import { ListItemtypeComponent } from './MenuItem/listitemtype/list-itemtype/lis
 import {AboutComponent} from './comp/about/about.component'
 import { ContactComponent } from './comp/contact/contact.component';
 import { ListVisitorMassagesComponent } from './comp/list-visitor-massages/list-visitor-massages.component';
+import { KitchenmanageComponent } from './comp/kitchenmanage/kitchenmanage.component';
 const routes: Routes = [
   {path:"about",component:AboutComponent},
   {path: "indexc",component:IndexPageComponent},
@@ -49,7 +50,8 @@ const routes: Routes = [
   {path:"contact",component:ContactComponent},
   {path:"massages",component:ListVisitorMassagesComponent},
   { path: "logout", component:LogoutComponent},
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"kitchenmanger",component:KitchenmanageComponent},
 ];
 
 @NgModule({

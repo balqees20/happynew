@@ -16,14 +16,11 @@
     <div class="container">
 
           <h2>مخيمات جمعية البيوت السعيدة </h2>
-        <button type="button" class="btn btn-outline-warning"><a routerLink="/addcamp">إضافة المخيم</a></button>
+    
       <div class="row">
         <div class="col-md-4" *ngFor="let C of camplist">
             <div class="card">
                 <div class="card-body">
-                   <button class="btn btn-danger" (click)="mydelete(C)">
-                            <a href="#"><i class="fa fa-trash"></i></a>
-                        </button>
                   <h3 class="card-title">{{C.camp_name}}</h3>
                   <h5>الموسم السنوي</h5>
                   <p class="card-text">{{C.season}}</p>

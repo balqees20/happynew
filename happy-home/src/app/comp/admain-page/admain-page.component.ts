@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import {Program} from '../../classes/program';
 import {Router} from '@angular/router';
-import{HappydataService} from '../../happydata.service'
+import{HappydataService} from '../../happydata.service';
 import { meeting } from '../../classes/meeting';
 import { course } from '../../classes/course';
 import { news } from '../../classes/news';

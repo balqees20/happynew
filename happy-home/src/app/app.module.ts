@@ -29,6 +29,8 @@ import { ListItemtypeComponent } from './MenuItem/listitemtype/list-itemtype/lis
 import { AboutComponent } from './comp/about/about.component';
 import { ContactComponent } from './comp/contact/contact.component';
 import { ListVisitorMassagesComponent } from './comp/list-visitor-massages/list-visitor-massages.component';
+import { KitchenmanageComponent } from './comp/kitchenmanage/kitchenmanage.component';
+import { DiscountitemComponent } from './MenuItem/discountitem/discountitem.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ListVisitorMassagesComponent } from './comp/list-visitor-massages/list-
     ListItemtypeComponent,
     AboutComponent,
     ContactComponent,
-    ListVisitorMassagesComponent
+    ListVisitorMassagesComponent,
+    KitchenmanageComponent,
+    DiscountitemComponent
   ],
   imports: [
     HttpClientModule,
