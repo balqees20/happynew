@@ -14,14 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dbconnection_1 = __importDefault(require("../dbconnection"));
-const sitManger_1 = __importDefault(require("./sitManger"));
-//import { TokenExpiredError } from "jsonwebtoken";
 const imageuplodservice_1 = __importDefault(require("../service/imageuplodservice"));
-const news = express_1.default.Router();
-news.get('/', (req, res) => {
-    dbconnection_1.default.query("SELECT * FROM news", (error, results) => {
+const discount_rout = express_1.default.Router();
+discount_rout.get('/', (req, res) => {
+    dbconnection_1.default.query("SELECT * FROM discountitem", (error, results) => {
+        // npmstartconsole.log("username from token: " + req.body.user.id)
         if (error) {
-            console.log("MYSQL ERROR" + error);
+            console.log("MYSQL ERROR " + error);
             res.json({ "error": 1 });
         }
         else {
@@ -29,19 +28,13 @@ news.get('/', (req, res) => {
         }
     });
 });
-news.get('/:news_id', (req, res) => {
-    let id = req.params['news_id'];
-    console.log("req.body.news: " + JSON.stringify(req.body.news));
-    dbconnection_1.default.query("SELECT * FROM news where news_id=?", id, (err, results) => {
-        res.json(results);
-    });
-});
-news.post('/', (req, res) => {
+discount_rout.post('/', (req, res) => {
     imageuplodservice_1.default.uploadLocalStorage(req, res, (error) => __awaiter(void 0, void 0, void 0, function* () {
         let files = req.files;
-        const imagePath = files.N_image[0].path;
-        const image = yield imageuplodservice_1.default.uploadCloudinary(imagePath, 'N_image');
-        dbconnection_1.default.query("INSERT INTO news (news_title , date , description,N_image) VALUES ('" + req.body.news_title + "','" + req.body.date + "','" + req.body.description + "','" + image.url + "') ", (err, results) => {
+        const imagePath = files.image[0].path;
+        const image = yield imageuplodservice_1.default.uploadCloudinary(imagePath, 'image');
+        console.log(image.url);
+        dbconnection_1.default.query("INSERT INTO discountitem (item_name ,disDate ,disday, oldprice ,dicprice ,image) VALUES('" + req.body.item_name + "','" + req.body.disDate + "','" + req.body.disday + "','" + req.body.oldprice + "','" + req.body.dicprice + "','" + image.url + "') ", (err, results) => {
             if (err) {
                 console.log("SQL ERROR " + err);
                 res.json(err);
@@ -52,10 +45,10 @@ news.post('/', (req, res) => {
         });
     }));
 });
-news.post('/delete', sitManger_1.default, (req, res) => {
+discount_rout.post('/delete', (req, res) => {
     let id = req.body.id;
     console.log('I called to delete the item id = ', id);
-    dbconnection_1.default.query("DELETE FROM news WHERE news_id=?", id, (err, results) => {
+    dbconnection_1.default.query("DELETE FROM discountitem WHERE disitem_id=?", id, (err, results) => {
         if (!err) {
             res.json({ 'deleted': id });
         }
@@ -65,18 +58,5 @@ news.post('/delete', sitManger_1.default, (req, res) => {
         }
     });
 });
-news.put('/:news_id', (req, res) => {
-    let id = req.params['news_id'];
-    let N = req.body.news;
-    dbconnection_1.default.query(`UPDATE news SET news_title=?, description=?`, [N.news_title, N.description], (err, results) => {
-        if (!err) {
-            res.json({ 'updated': id });
-        }
-        else {
-            res.json({ 'error': id });
-            console.log(err.message);
-        }
-    });
-});
-exports.default = news;
-//# sourceMappingURL=news.js.map
+exports.default = discount_rout;
+//# sourceMappingURL=discount.js.map

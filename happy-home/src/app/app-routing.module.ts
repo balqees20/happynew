@@ -26,15 +26,18 @@ import { ContactComponent } from './comp/contact/contact.component';
 import { ListVisitorMassagesComponent } from './comp/list-visitor-massages/list-visitor-massages.component';
 import { KitchenmanageComponent } from './comp/kitchenmanage/kitchenmanage.component';
 import { AuthGuard } from './auth.guard';
+import { DiscountitemComponent}from './MenuItem/discountitem/discountitem.component';
+import { AdddiscountComponent } from './MenuItem/adddiscount/adddiscount.component';
 const routes: Routes = [
   { path: "about", component: AboutComponent },
   { path: "indexc", component: IndexPageComponent },
   { path: "activity", component: ListActivityComponent },
   { path: "camp", component: ListCampComponent },
   { path: "news", component: ListNewsComponent },
-  { path: "programs/:id", component: ListProgramComponent },
+  { path: "programs", component: ListProgramComponent },
   { path: "courses", component: ListcoursesComponent },
   { path: "meetings", component: ListmeetingComponent },
+  {path:"discount",component:DiscountitemComponent},
   {
     path: "addprogram", component: AddprogramComponent,
     canActivate: [AuthGuard],
@@ -81,6 +84,10 @@ const routes: Routes = [
   { path: "menuitems/:itemType_id", component: ListMenuItemComponent },
   { path: "additemtype", component: AddItemtypeComponent,
   canActivate: [AuthGuard],
+  data: {
+    role: 'admin2'
+  } },
+  {path:"adddiscount" ,component:AdddiscountComponent,canActivate: [AuthGuard],
   data: {
     role: 'admin2'
   } },

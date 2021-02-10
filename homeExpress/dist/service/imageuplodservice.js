@@ -3,11 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-//const cloudinary = require('cloudinary');
 const cloudinary_1 = __importDefault(require("cloudinary"));
-//const multer = require('multer');
 const multer_1 = __importDefault(require("multer"));
-//const fs = require('fs');
 const fs_1 = __importDefault(require("fs"));
 require('dotenv/config');
 // Local storage configuration
@@ -24,7 +21,7 @@ const storage = multer_1.default.diskStorage({
     },
 });
 const uploadLocalStorage = multer_1.default({ storage }).fields([
-    { name: "meeting_image" }, { name: "camp_image" }, { name: "act_image" }, { name: "itemType_image" }
+    { name: "meeting_image" }, { name: "N_image" }, { name: "camp_image" }, { name: "image" }, { name: "act_image" }, { name: "itemType_image" }
 ]);
 // Cloudinary configuration
 cloudinary_1.default.v2.config({

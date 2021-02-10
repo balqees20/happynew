@@ -9,9 +9,20 @@
 </head>
 <body>
   <div class="row" *ngIf="!admin">
-    <a class="nav-link" class="nav-link " routerLink="/login"> <h6>دخول </h6></a>
-
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a class="nav-link" class="nav-link " routerLink="/login">دخول</a>
+        </li>
+        <li role="presentation"> <a routerLink="/logout"> خروج </a>
+        </li>
+        
+      </ul>
+    </div>
   </div>
+
+
   <div class="row">
     
   </div>

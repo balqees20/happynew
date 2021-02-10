@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const multer_1 = __importDefault(require("multer"));
 const path_1 = __importDefault(require("path"));
 const cors_1 = __importDefault(require("cors"));
 const activity_1 = __importDefault(require("./routes/activity"));
@@ -20,6 +19,7 @@ const itemtype_1 = __importDefault(require("./routes/itemtype"));
 const about_1 = __importDefault(require("./routes/about"));
 const contactv_1 = __importDefault(require("./routes/contactv"));
 const sitManger_1 = __importDefault(require("./routes/sitManger"));
+const discount_1 = __importDefault(require("./routes/discount"));
 //require('dotenv').config({
 // path: '.env'
 //});
@@ -50,24 +50,7 @@ app.use('/program', programs_1.default);
 app.use('/about', about_1.default);
 app.use('/contact', contactv_1.default);
 app.use('/sitManger', sitManger_1.default);
-const storage = multer_1.default.diskStorage({
-    destination: (req, file, callBack) => {
-        callBack(null, 'images');
-    },
-    filename: (req, file, callBack) => {
-        callBack(null, `${file.originalname}`);
-    }
-});
-let upload = multer_1.default({ storage: storage });
-app.post('/file', upload.single('file'), (req, res, next) => {
-    const file = req.file;
-    console.log(file.filename);
-    if (!file) {
-        const error = new Error('No File');
-        return next(400);
-    }
-    res.send(file);
-});
+app.use('/discount', discount_1.default);
 app.get('/', (req, res) => {
     res.send("Hello World! Express is running ");
 });

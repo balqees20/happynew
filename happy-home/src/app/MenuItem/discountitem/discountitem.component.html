@@ -1,1 +1,35 @@
-<p>discountitem works!</p>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>خصومات على وجبات مطبخ البيوت السعيدة </h2>
+        <div class="row">
+            <div class="col-md-4" *ngFor="let M of discountlist">
+                <div class="card" >
+                    <div class="card-body">
+                       <img width="200px" height="160px" src="{{M.image}}" class="card-img-top">
+                      <h3 class="card-title">{{M.item_name}}</h3>
+                      <h6 class="card-title">{{M.oldprice}}شيكل  </h6>
+                      <h6 style="color: red;" class="card-title">سعر العرض   </h6>
+                      <p class="card-text">{{M.dicprice}}  شيكل للوجبة </p>
+    
+                      <p class="card-text">{{M.disDate}}</p>
+    
+                      <h6 class="card-title">{{M.disday}}</h6>
+                      
+                    </div>
+                </div>
+                <br>
+            </div>    
+
+        </div>
+        
+    </div>
+</body>
+</html>
+

@@ -3,5 +3,6 @@ export default class Cnews{
     news_title:string;
     date:Date;
     description:string;
+    N_image:string;
 
 } 

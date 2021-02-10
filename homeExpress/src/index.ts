@@ -17,6 +17,7 @@ import itemtype_rout from "./routes/itemtype";
 import about_rout from "./routes/about";
 import contact_rout from "./routes/contactv";
 import mangerRoute from "./routes/sitManger";
+import discount_rout from "./routes/discount"
 
 
 
@@ -54,28 +55,10 @@ app.use('/program',program);
 app.use('/about',about_rout);
 app.use('/contact',contact_rout);
 app.use('/sitManger',mangerRoute)
+app.use('/discount',discount_rout)
 
 
-const storage=multer.diskStorage({
-    destination:(req,file,callBack)=>{
-        callBack(null,'images')
-    },
-    filename:(req,file,callBack)=>{
-        callBack(null,`${file.originalname}`)
-    }
-});
 
-let  upload=multer({storage:storage});
-
-app.post('/file',upload.single('file'),(req,res,next)=>{
-    const file=req.file;
-    console.log(file.filename);
-    if(!file){
-        const error=new Error('No File');
-        return next(400);
-    }
-    res.send(file);
-    });
 
     app.get('/', (req, res) => {
         res.send("Hello World! Express is running ");

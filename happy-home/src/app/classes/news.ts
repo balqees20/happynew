@@ -5,6 +5,8 @@ export class news {
        public news_title:string,
       public  date:Date,
        public description:string,
+       public N_image:string,
+
         )
     {}
 }

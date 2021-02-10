@@ -1,17 +1,23 @@
 <div class="container">
-    <h2>نشاطات جمعية البيوت السعيدة </h2>
-    <div class="row">
-        <div class="col-md-4" *ngFor="let act of  actlist">
-            <div ng-app="myApp" ng-controller="namesCtrl">
-                    
-                    <img src="{{act.act_image}}" class="card-img-top">
-                    <div class="card-body">
-                        <h2 class="card-title">{{act.act_name}}</h2>
-                        <h6>{{act.act_type}}</h6>
-                        <h6>{{act.program_name}}</h6>
-                        <p>{{act.description}}</p>
-                    </div>
-            </div>
+    <h2 style="text-align: center;">نشاطات جمعية البيوت السعيدة </h2>
+    
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+        
+          <div  *ngFor="let act of  actlist"class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block services-wrap text-center">
+              <div class="img" > <img width="200px" height="160px" src="{{act.act_image}}" class="card-img-top">
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">{{act.act_name}}</h3>
+                <p>{{act.description}}</p>
+                <h6 class="heading">{{act.act_type}} {{act.program_name}} </h6>
+
+              </div>
+            </div>      
+          </div>
         </div>
-    </div>
-</div>
+    	</div>
+    </section>
+    

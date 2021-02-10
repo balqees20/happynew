@@ -15,7 +15,10 @@
                 <div *ngIf="date.errors.required"> الرجاءادخال التاريخ</div>
             </div>
         </div>
-        
+        <div class="form-group">
+            <label for="N_image">  صورة </label>
+            <input  ngModel name="N_image" #image="ngModel" (change)="onselectedImage($event);" id="N_image" type="file" class="form-control">
+        </div>
     
         <div class="form-group">
             <label for="description">الوصف</label>

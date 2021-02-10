@@ -7,17 +7,14 @@
 
     <div class="container">
         <h2>مأكولات مطبخ البيوت السعيدة </h2>
-        <button type="button" class="btn btn-outline-warning"><a routerLink="/additem">إضافةوجبة طعام </a></button>
         <div class="row">
             <div class="col-sm-3" *ngFor="let P of  menulist">
                 <div class="card">
                   
                       <div class="card-body">
-                        <button class="btn btn-danger" (click)="mydelete(P)">
-                            <a href="#"><i class="fa fa-trash"></i></a>
-                        </button>
+                       
                       <h3 class="card-title">{{P.item_name}}</h3>
-                      <h6 class="card-title">{{P.price }}</h6>
+                      <h6 class="card-title">{{P.price }}شيكل</h6>
                     </div>
                    
                     <!--<a routerLink="/menuitems/{{P.item_id}}" routerLinkActive="active" style="left: 0;" type="button" data-id=''>--> 

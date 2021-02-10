@@ -1,7 +1,5 @@
 <div class="container">
-  <div class="row">
-    <a routerLink="/logout">تسجيل الخروج </a>
-  </div>
+ 
   <nav class="navbar navbar-expand-sm bg-light justify-content-center">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -47,11 +45,25 @@
         </button>
 
       </li>
+      
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+           
+            <li role="presentation"> <a routerLink="/logout"> خروج </a>
+            </li>
+          </ul>
+        </div>
+     
     </ul>
   </nav>
   <br>
  <div >
-  <h2>برامج  جمعية البيوت السعيدة </h2> 
+   <div style="background-color: darkorange; text-align: center;" >
+    <h2>برامج  جمعية البيوت السعيدة </h2> 
+  
+   </div>
   
   <br>
 

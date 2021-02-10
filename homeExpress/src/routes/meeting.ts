@@ -6,15 +6,12 @@ import { MysqlError } from 'mysql';
 import MEETIGN from "../model/meeting";
 import upload from "../service/imageuplodservice";
 
-//import imageupload from '../middlware/imageupload';
 
 const meet_rout = express.Router();
-//const _upload = imageupload();
 meet_rout.get('/', (req, res) => {
 
 
     connection.query("SELECT * FROM meeting", (error, results) => {
-        // npmstartconsole.log("username from token: " + req.body.user.id)
         if (error) {
             console.log("MYSQL ERROR " + error);
             res.json({ "error": 1 })

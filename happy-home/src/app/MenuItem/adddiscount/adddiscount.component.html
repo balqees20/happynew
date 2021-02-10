@@ -1,0 +1,59 @@
+<div class="content">
+    <div class="card">
+        <form  #f="ngForm" (ngSubmit)="submit(f)">
+            
+            <div class="form-group">
+                <label for="item_name"> اسم الوجبة  </label>
+                <input required ngModel name="item_name" #item_name="ngModel"  id="item_name" type="text" class="form-control">
+                <div *ngIf="item_name.touched && !item_name.valid" class="alert alert-danger">
+                    <div *ngIf="item_name.errors.required">الرجاء إدخال اسم الصنف </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="oldprice"> السعر</label>
+                <input required ngModel name="oldprice" #oldprice="ngModel"  id="oldprice" type="number" class="form-control">
+                <div *ngIf="oldprice.touched && !oldprice.valid" class="alert alert-danger">
+                    <div *ngIf="oldprice.errors.required"> الرجاء إدخال السعر  </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dicprice"> التخفيضات </label>
+                <input required ngModel name="dicprice" #dicprice="ngModel"  id="dicprice" type="number" class="form-control">
+                <div *ngIf="dicprice.touched && !dicprice.valid" class="alert alert-danger">
+                    <div *ngIf="dicprice.errors.required"> الرجاء إدخال سعر التخفيض   </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="disday"> اليوم </label>
+                <input required ngModel name="disday" #disday="ngModel"  id="disday" type="text" class="form-control">
+                <div *ngIf="disday.touched && !disday.valid" class="alert alert-danger">
+                    <div *ngIf="disday.errors.required"> الرجاء إدخال اليوم   </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="disDate"> التاريخ  </label>
+                <input required ngModel name="disDate" #disDate="ngModel"  id="disDate" type="date" class="form-control">
+                <div *ngIf="disDate.touched && !disDate.valid" class="alert alert-danger">
+                    <div *ngIf="disDate.errors.required"> الرجاء إدخال التاريخ    </div>
+                </div>
+            </div>
+
+
+            
+            <div class="form-group">
+                <label for="image">  صورة </label>
+                <input  ngModel name="image" #image="ngModel" (change)="onselectedImage($event);" id="image" type="file" class="form-control">
+            </div>
+
+       
+    
+          <button class="btn btn-primary" [disabled]="!f.valid" >إضافة </button>
+
+          
+       </form>
+    </div>
+</div>

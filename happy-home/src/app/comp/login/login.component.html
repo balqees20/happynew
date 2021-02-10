@@ -1,29 +1,31 @@
-{{message}}
 
-<form #f="ngForm" (ngSubmit)="submit(f)">
-
-  <div class="form-group">
-    <label for="mangerName">إسم المشرف
-    </label><br>
-    <input required ngModel name="mangerName" #mangerName="ngModel"  id="mangerName" type="text" class="form-control">
-    <div *ngIf="mangerName.touched && !mangerName.valid" class="alert alert-danger">
-        <div *ngIf="mangerName.errors.required">  الرجاء إدخال الحقل  </div>
-    </div>  </div>
-
-  <div class="form-group">
-      <label for="password">كلمة المرور
-      </label><br>
-      <input ngModel required type="text" name="password" class="form-control" id="password">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    {{message}}
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+  
+      <div class="form-group">
+        <label for="mangerName">إسم المشرف
+        </label><br>
+        <input required ngModel name="mangerName" #mangerName="ngModel"  id="mangerName" type="text" class="form-control">
+        <div *ngIf="mangerName.touched && !mangerName.valid" class="alert alert-danger">
+            <div *ngIf="mangerName.errors.required">  الرجاء إدخال الحقل  </div>
+        </div>  </div>
+    
+      <div class="form-group">
+          <label for="password">كلمة المرور
+          </label><br>
+          <input ngModel required type="text" name="password" class="form-control" id="password">
+      </div>
+    
+      
+      <button class="btn btn-primary" [disabled]="!f.valid" >دخول </button>
+    
+    
+    </form>
+    
   </div>
-
-  <p>
-    {{f.value | json}}
-    {{response | json}}
-    {{body | json}}
-
-</p>
-
-  <button class="btn btn-primary" [disabled]="!f.valid" >إضافة </button>
+  
+</div>
 
 
-</form>

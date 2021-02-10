@@ -6,6 +6,8 @@ import {generateAuthToken} from "../middlware/auth";
 import Cnews from "../model/news"
 import Smanger from "./sitManger";
 //import { TokenExpiredError } from "jsonwebtoken";
+import upload from "../service/imageuplodservice";
+
 
 const news = express.Router();
 
@@ -30,9 +32,15 @@ news.get('/:news_id', (req, res) => {
 });
 
 news.post('/', (req:Request, res:Response) => {
-    let news:Cnews = req.body.news;
+    upload.uploadLocalStorage(req, res, async (error: any) => {
+        let files: any = req.files
+        const imagePath = files.N_image[0].path;
+        const image: any = await upload.uploadCloudinary(
+            imagePath,
+            'N_image'
+        );
     
-    connection.query("INSERT INTO news (news_title , date , description) VALUES ('" +news.news_title+ "','" + news.date+ "','" + news.description+ "') ", (err, results)=>{
+    connection.query("INSERT INTO news (news_title , date , description,N_image) VALUES ('" +req.body.news_title+ "','" + req.body.date+ "','" + req.body.description+ "','" +image.url+ "') ", (err, results)=>{
         if (err){
             console.log("SQL ERROR " + err);
             res.json(err);
@@ -41,6 +49,7 @@ news.post('/', (req:Request, res:Response) => {
             res.json({'created': 'success'});
         }
     })
+})
 });
 news.post('/delete',Smanger, (req: Request, res: Response) => {
     let id: string = req.body.id;

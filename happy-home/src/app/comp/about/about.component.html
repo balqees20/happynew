@@ -11,12 +11,17 @@
       <div class="col-sm-1"></div>
       <div class="col-sm-3 ">
         <h6>الأخبار</h6>
-        <div class="card">
-          <div class="caed-title">
-            <img src="../../assets/image/hh.jpg"/>
-          </div>
-          <div *ngFor="let N of  newslist">
-            <h6 class="card-text">{{N.news_title}}</h6>
+          
+          <div class="card">
+          <div class="slider news " *ngFor="let N of  newslist">
+            
+              <ul>
+                <li>
+                  <h6 >{{N.news_title}}</h6>
+                </li>
+              </ul>
+           
+            
           </div>
         </div>
       </div>

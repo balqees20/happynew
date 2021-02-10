@@ -15,12 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dbconnection_1 = __importDefault(require("../dbconnection"));
 const imageuplodservice_1 = __importDefault(require("../service/imageuplodservice"));
-//import imageupload from '../middlware/imageupload';
 const meet_rout = express_1.default.Router();
-//const _upload = imageupload();
 meet_rout.get('/', (req, res) => {
     dbconnection_1.default.query("SELECT * FROM meeting", (error, results) => {
-        // npmstartconsole.log("username from token: " + req.body.user.id)
         if (error) {
             console.log("MYSQL ERROR " + error);
             res.json({ "error": 1 });

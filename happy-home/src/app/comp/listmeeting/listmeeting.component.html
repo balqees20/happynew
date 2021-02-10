@@ -11,12 +11,10 @@
             <div class="col-md-4" *ngFor="let M of   meetlist">
                 <div class="card" >
                     <div class="card-body">
-                       
+                       <img width="200px" height="160px" src="{{M.meeting_image}}" class="card-img-top">
                       <h3 class="card-title">{{M.meeting_name}}</h3>
-                      <H6>تاريخ الملتقى </H6>
-                      <p class="card-text">{{M.meeting_date}}</p>
                       <H6>مكان الملتقى </H6>
-                      <img src="M.meeting_image">
+    
                       <p class="card-text">{{M.meeting_place}}</p>
     
                       <h6 class="card-title">{{M.meeting_type}}</h6>

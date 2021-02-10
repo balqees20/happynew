@@ -12,17 +12,16 @@
             <div class="col-md-4" *ngFor="let CO of  courseslist">
                 <div class="card">
                     <div class="card-body">
-                       <!--- <button class="btn btn-danger" (click)="mydelete(CO)">
-                            <a href="#"><i class="fa fa-trash"></i></a>
-                        </button>-->
+                       
                       <h2 class="card-title">{{CO.coures_name}}</h2>
+                      
+                      <h5>الفئة المستهددفة </h5>
+                      <h6 class="card-title">{{CO.target_group}}</h6>
+                      <p class="card-text">{{CO.description}}</p>
                       <h5>تاريخ بداية الدورة </h5>
                       <p class="card-text">{{CO.start_date}}</p>
                       <h5>تاريخ نهاية الدورة </h5>
                       <p class="card-text">{{CO.last_date}}</p>
-                      <h5>الفئة المستهددفة </h5>
-                      <h6 class="card-title">{{CO.target_group}}</h6>
-                      <p class="card-text">{{CO.description}}</p>
                     </div>
                     
                 </div>

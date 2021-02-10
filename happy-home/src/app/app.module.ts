@@ -31,6 +31,7 @@ import { ContactComponent } from './comp/contact/contact.component';
 import { ListVisitorMassagesComponent } from './comp/list-visitor-massages/list-visitor-massages.component';
 import { KitchenmanageComponent } from './comp/kitchenmanage/kitchenmanage.component';
 import { DiscountitemComponent } from './MenuItem/discountitem/discountitem.component';
+import { AdddiscountComponent } from './MenuItem/adddiscount/adddiscount.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { DiscountitemComponent } from './MenuItem/discountitem/discountitem.comp
     ContactComponent,
     ListVisitorMassagesComponent,
     KitchenmanageComponent,
-    DiscountitemComponent
+    DiscountitemComponent,
+    AdddiscountComponent
   ],
   imports: [
     HttpClientModule,

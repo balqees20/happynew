@@ -8,8 +8,10 @@ import {meeting} from './classes/meeting';
 import {news} from './classes/news';
 import {menuItem} from './classes/menuitem';
 import {ItemType} from './classes/itemtype';
-import{ABOUT} from './classes/about'
-import {contact} from './classes/contactv'
+import{ABOUT} from './classes/about';
+import {contact} from './classes/contactv';
+import {discount} from './classes/discount';
+
 import { $ } from 'protractor';
 
 @Injectable({
@@ -32,6 +34,8 @@ export class HappydataService {
   aboutUrl="http://localhost:4620/about/"
   itemtypeUrl="http://localhost:4620/itemtype/"
   contactUrl="http://localhost:4620/contact/"
+  disUrl="http://localhost:4620/discount/"
+
   imageUrl="http://localhost:4620/file/"
 
 
@@ -91,6 +95,9 @@ export class HappydataService {
   getabout(){
     return this.http.get(this.aboutUrl)
   }
+  getdiscount(){
+    return this.http.get(this.disUrl)
+  }
   getmassages(){
     return this.http.get(this.contactUrl)
   }
@@ -121,6 +128,10 @@ export class HappydataService {
    
     return this.http.post(this.activUrl,act)
   }
+  adddiscount(act:any){
+   
+    return this.http.post(this.disUrl,act)
+  }
 
   addCamp(cam:any){
   
@@ -140,9 +151,8 @@ export class HappydataService {
   addMeeting(meet:any){
     return this.http.post(this.meetUrl,meet)
   }
-  addnews(N:news){
-    let body ={"news":N}
-    return this.http.post(this.newsUrl,body)
+  addnews(news:any){
+    return this.http.post(this.newsUrl,news)
   }
   additem(P:menuItem){
     let body ={"menuitem":P}
@@ -158,6 +168,11 @@ export class HappydataService {
   deleteactivity (act_id: number){
     console.log(`${this.activUrl}/${act_id}`,"qweqweqwe");
     return this.http.post(`${this.activUrl}/delete`,{id: act_id});
+    
+  }
+  deletedis (disitem_id : number){
+    console.log(`${this.disUrl}/${disitem_id }`,"qweqweqwe");
+    return this.http.post(`${this.disUrl}/delete`,{id: disitem_id });
     
   }
 

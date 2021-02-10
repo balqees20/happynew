@@ -8,10 +8,23 @@
 
     <div class="container">
         <h2>أصناف مأكولات مطبخ البيوت السعيدة </h2>
-        <a type="button" class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1" aria-pressed="true"
+        <br>
+        <div class="row">
+          <div class="col-sm-5">
+            <a type="button" class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1" aria-pressed="true"
             routerLink="/menuitems/{_itemtype_id}" routerLinkActive="active">
             <span>  عرض قائمة جميع الأطعمة</span>
           </a>
+          </div>
+          <div class="col-sm-5">
+            <a type="button" class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1" aria-pressed="true"
+            routerLink="/discount" routerLinkActive="active">
+            <span> عرض الخصومات </span>
+          </a>
+          </div>
+
+        </div>
+        
           <br>
           <br>
           <div class="row">
@@ -32,33 +45,31 @@
               </div>-->
           </div>
           
-        <div class="row">
+        <div class="row" style="margin: 20px;">
+          
                 <div class="col-sm-4" *ngFor="let t of  typelist">
+                 
                     <div>
-                      <img src="{{t.type_image}}" width="150px" height="150px"  alt="...">
+                      <img src="{{t.type_image}}" width="200px" height="100px"  alt="...">
 
                     </div>
                     <div>
-                      <!--  <button class="btn btn-danger" (click)="mydelete(t)">
-                            <a href="#"><i class="fa fa-trash"></i></a>
-                        </button>-->
-                      <h3 >{{t.type_name}}</h3>
-                      <a type="button" class="btn mb-1 py-1 px-2  browse-button mr-1" aria-pressed="true"
-                      routerLink="/menuitems/{{t._id}}" routerLinkActive="active" >
-                      <span>عرض الوجبات</span>
-                    </a>
+                      
+                      <h2 >{{t.type_name}}</h2>
+                    
                     </div>
                 
                 <br>
+           
+            <div class="col-sm-2">
+
             </div>
-            
         </div>
         <br>
+                  </div>
+                   
           <div class="row">
-              
-              
-               
-            
+             
         </div>
     </div>
 </body>

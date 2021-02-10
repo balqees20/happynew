@@ -1,8 +1,5 @@
-//const cloudinary = require('cloudinary');
 import cloudinary from "cloudinary";
-//const multer = require('multer');
 import multer from "multer";
-//const fs = require('fs');
 import fs from "fs";
 require('dotenv/config');
 
@@ -22,7 +19,7 @@ const storage = multer.diskStorage({
 });
 
 const uploadLocalStorage = multer({ storage }).fields([
-	{ name: "meeting_image" },{ name: "camp_image" },{ name: "act_image" },{ name: "itemType_image" }
+	{ name: "meeting_image" },{ name: "N_image" },{ name: "camp_image" },{ name: "image" },{ name: "act_image" },{ name: "itemType_image" }
 ]);
 
 // Cloudinary configuration
